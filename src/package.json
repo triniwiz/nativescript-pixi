@@ -1,6 +1,6 @@
 {
 	"name": "nativescript-pixi",
-	"version": "1.0.0-alpha0",
+	"version": "1.0.0-alpha1",
 	"description": "Plugin for using pixi.js in NativeScript",
 	"main": "index",
 	"nativescript": {
