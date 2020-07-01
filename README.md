@@ -60,8 +60,10 @@ import { TNSPIXIApplication } from "nativescript-pixi";
 ```
 
 ## E.G Output
+| IOS                                     | Android                                      |
+| --------------------------------------- | -------------------------------------------- |
+| ![ios](ss/ss_ios.gif?raw=true)) | ![android](ss/ss_android.gif?raw=true)) |
 
-![Output](ss/three-cube.gif?raw=true)
 
 ## E.G Output
 
