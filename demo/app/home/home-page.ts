@@ -32,11 +32,11 @@ export function canvasLoaded(args) {
     //explosion(canvas);
     // bitmapFont(canvas);
     //dynamicGraphics(canvas);
-    meshBasic(canvas);
+   // meshBasic(canvas);
     //meshAdvance(canvas);
     //renderTextureAdvance(canvas);
     //starWarp(canvas)
-    //simplePlane(canvas)
+    simplePlane(canvas)
     // meshShader(canvas);
    // meshSharingGeo(canvas);
     //multiPassShaderGenMesh(canvas);
