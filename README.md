@@ -1,40 +1,73 @@
 # nativescript-pixi
 
-Add your plugin badges here. See [nativescript-urlhandler](https://github.com/hypery2k/nativescript-urlhandler) for example.
-
-Then describe what's the purpose of your plugin. 
-
-In case you develop UI plugin, this is where you can add some screenshots.
-
-## (Optional) Prerequisites / Requirements
-
-Describe the prerequisites that the user need to have installed before using your plugin. See [nativescript-firebase plugin](https://github.com/eddyverbruggen/nativescript-plugin-firebase) for example.
+[![npm](https://img.shields.io/npm/v/nativescript-pixi.svg)](https://www.npmjs.com/package/nativescript-pixi)
+[![npm](https://img.shields.io/npm/dt/nativescript-pixi.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-pixi)
+[![Build Status](https://travis-ci.org/triniwiz/nativescript-pixi.svg?branch=master)](https://travis-ci.org/triniwiz/nativescript-pixi)
 
 ## Installation
 
-Describe your plugin installation steps. Ideally it would be something like:
-
-```javascript
-tns plugin add nativescript-pixi
+```bash
+npm i three nativescript-pixi
 ```
 
-## Usage 
+## Usage
 
-Describe any usage specifics for your plugin. Give examples for Android, iOS, Angular if needed. See [nativescript-drop-down](https://www.npmjs.com/package/nativescript-drop-down) for example.
-	
-	```javascript
-    Usage code snippets here
-    ```)
+```xml
+<GridLayout width="100%" height="100%">
+         <canvas:TNSCanvas width="100%" height="100%" id="canvas" ready="onReady"/>
+</GridLayout>
+```
 
-## API
+```typescript
+import * as PIXI from "pixi.js";
+import { TNSPIXIApplication } from "nativescript-pixi";
+// Create the Application by passing the canvas view object to it
+ function onReady(args) {
+   const canvas = args.object;
+   const app = new TNSPIXIApplication({
+           canvas,
+           backgroundColor: 0x1099bb,
+       });
+       app.loader.add("bg_grass", "~/assets/images/bg_grass.jpg").load(build);
+   
+       function build() {
+           // Create a new texture
+           const texture = app.loader.resources.bg_grass.texture;
+   
+           // Create the simple plane
+           const verticesX = 10;
+           const verticesY = 10;
+           const plane = new PIXI.SimplePlane(texture, verticesX, verticesY);
+   
+           plane.x = 100;
+           plane.y = 100;
+   
+           app.stage.addChild(plane);
+   
+           // Get the buffer for vertice positions.
+           const buffer = plane.geometry.getBuffer("aVertexPosition") as any;
+   
+           // Listen for animate update
+           app.ticker.add((delta) => {
+               // Randomize the vertice positions a bit to create movement.
+               for (let i = 0; i < buffer.data.length; i++) {
+                   buffer.data[i] += Math.random() - 0.5;
+               }
+               buffer.update();
+           });
+       }
+}
+```
 
-Describe your plugin methods and properties here. See [nativescript-feedback](https://github.com/EddyVerbruggen/nativescript-feedback) for example.
-    
-| Property | Default | Description |
-| --- | --- | --- |
-| some property | property default value | property description, default values, etc.. |
-| another property | property default value | property description, default values, etc.. |
-    
+## E.G Output
+
+![Output](ss/three-cube.gif?raw=true)
+
+## E.G Output
+
+
+
+
 ## License
 
 Apache License Version 2.0, January 2004
