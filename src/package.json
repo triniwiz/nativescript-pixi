@@ -1,0 +1,65 @@
+{
+	"name": "nativescript-pixi",
+	"version": "1.0.0-alpha0",
+	"description": "Plugin for using pixi.js in NativeScript",
+	"main": "index",
+	"nativescript": {
+		"platforms": {
+			"android": "6.0.0",
+			"ios": "6.0.1"
+		}
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/triniwiz/nativescript-pixi.git"
+	},
+	"scripts": {
+		"tsc": "npm i && tsc",
+		"build": "npm run tsc && npm run build.native",
+		"build.native": "node scripts/build-native.js",
+		"tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
+		"ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+		"prepack": "npm run build.native",
+		"demo.ios": "npm i && cd ../demo && tns run ios",
+		"demo.android": "npm i && cd ../demo && tns run android",
+		"demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
+		"demo-angular.ios": "npm i && cd ../demo-angular && tns run ios",
+		"demo-angular.android": "npm i && cd ../demo-angular && tns run android",
+		"demo-angular.reset": "cd ../demo-angular && npx rimraf -- hooks node_modules platforms package-lock.json",
+		"plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-pixi && tns plugin add ../src && cd ../demo-angular && tns plugin remove nativescript-pixi && tns plugin add ../src",
+		"clean": "npm run demo.reset && npm run demo-angular.reset && npx rimraf -- node_modules package-lock.json && npm i",
+		"pub.dev": "npm i nativescript-browser-polyfill@latest"
+	},
+	"keywords": [
+		"NativeScript",
+		"JavaScript",
+		"Android",
+		"iOS"
+	],
+	"author": {
+		"name": "Osei Fortune",
+		"email": "fortune.osei@yahoo.com"
+	},
+	"bugs": {
+		"url": "https://github.com/triniwiz/nativescript-pixi/issues"
+	},
+	"license": "Apache-2.0",
+	"homepage": "https://github.com/triniwiz/nativescript-pixi",
+	"devDependencies": {
+		"@nativescript/core": "^6.5.4",
+		"prompt": "^1.0.0",
+		"rimraf": "^2.6.3",
+		"semver": "^5.6.0",
+		"tns-platform-declarations": "^6.5.4",
+		"tslint": "^5.12.1",
+		"typescript": "~3.4.5"
+	},
+	"dependencies": {
+		"nativescript-browser-polyfill": "^1.0.0-alpha6",
+		"pixi.js": "^5.2.4"
+	},
+	"bootstrapper": "nativescript-plugin-seed",
+	"peerDependencies": {
+		"nativescript-canvas-plugin": "~0.8.0"
+	}
+}
