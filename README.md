@@ -1,5 +1,7 @@
 # nativescript-pixi
 
+**The source is now managed at https://github.com/NativeScript/canvas**
+
 [![npm](https://img.shields.io/npm/v/nativescript-pixi.svg)](https://www.npmjs.com/package/nativescript-pixi)
 [![npm](https://img.shields.io/npm/dt/nativescript-pixi.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-pixi)
 [![Build Status](https://travis-ci.org/triniwiz/nativescript-pixi.svg?branch=master)](https://travis-ci.org/triniwiz/nativescript-pixi)
